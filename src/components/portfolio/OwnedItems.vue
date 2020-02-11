@@ -3,7 +3,7 @@
     <b-card-text align="center">Daily Revenue: {{business.revenue}}</b-card-text>
     <b-card-footer align="right">
       Cost:{{business.cost}}
-      <b-button href="#" variant="success" @click="buyBusiness">Buy</b-button>
+      <b-button href="#" variant="success" @click="upgrade">Upgrade</b-button>
     </b-card-footer>
   </b-card>
 </template> 
@@ -11,12 +11,11 @@
 export default {
   props: ["business"],
   methods: {
-    buyBusiness() {
+    upgrade() {
       const order = {
-        businessName: this.business.name,
-        businessCost: this.business.cost
+        businessName: this.business.name
       };
-      this.$store.dispatch("buyBusiness", order);
+      this.$store.dispatch("upgrade", order);
     }
   }
 };

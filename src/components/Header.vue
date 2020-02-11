@@ -15,13 +15,9 @@
       <!-- Right aligned nav items -->
       <b-navbar-nav class="ml-auto">
        
-        <b-nav-item >Funds:{{funds}}</b-nav-item>
-        <b-nav-item-dropdown text="Save/Load" right>
-          <b-dropdown-item href="#">Save</b-dropdown-item>
-          <b-dropdown-item href="#">Load</b-dropdown-item>
-         
-        </b-nav-item-dropdown>
-        <b-nav-item >End Day</b-nav-item>
+       <b-nav-item >Funds:{{funds}}</b-nav-item>
+       <b-nav-item >Debt:{{debt}}</b-nav-item>
+       <b-nav-item @click="endDay">End Day</b-nav-item>
        
       </b-navbar-nav>
     </b-collapse>
@@ -36,9 +32,20 @@ export default {
     }
   },
   computed: {
-     funds(){
-                return this.$store.getters.funds
-            }
+    funds(){
+      return this.$store.getters.funds
+    },
+    debt(){
+      return this.$store.getters.debt
+    }
+      
+   
+  },
+  methods: {
+     endDay() {
+     
+      this.$store.dispatch("endDay");
+    }
   }
 }
-</script>script 
+</script> 
